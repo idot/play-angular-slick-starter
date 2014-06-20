@@ -1,0 +1,16 @@
+<nvd3-line-chart
+    data="exampleData"
+    width="600"
+    height="350"
+    showXAxis="true"
+    showYAxis="true"
+    xAxisTickFormat="xAxisTickFormat_Date_Format()"
+    yAxisTickFormat="yAxisFormatFunction()">
+</nvd3-line-chart>
+
+ <table ng-table="tableusers" class="table"  show-filter="true">
+    <tr ng-repeat="user in $data">
+        <td data-title="'username'" sortable="'username'" filter="{ 'username': 'text' }">{{user.username}}</td>
+        <td data-title="'first name'" sortable="'firstName'" filter="{ 'firstName': 'text' }">{{user.firstName}}</td>
+    </tr>
+</table>

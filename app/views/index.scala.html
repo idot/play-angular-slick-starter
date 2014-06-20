@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>App</title>
+  <link rel="stylesheet" href="@routes.Assets.versioned("css/main.css")"/>
+  <link rel="stylesheet" href="@routes.Assets.versioned("lib/angular-ui/angular-ui.min.css")"/>
+  <link rel="stylesheet" href="@routes.Assets.versioned("lib/angularjs/angular-csp.css")"/>
+  <link rel="stylesheet" href="@routes.Assets.versioned("lib/ng-table/ng-table.css")"/>
+  <link rel="stylesheet" href="@routes.Assets.versioned("lib/angularjs-toaster/toaster.css")"/>
+  <script data-main="@routes.Assets.versioned("js/main.js")" src="@routes.Assets.versioned("lib/requirejs/require.js")"></script>
+</head>
+  <body class="container">
+
+	  <nav class="navbar navbar-default" role="navigation" ng-controller="Navigation">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">App</a>
+	    </div>
+
+	     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	            <li ng-class="{active: $state.includes('view1')}"><a ui-sref="view1">view1</a></li>
+				<li ng-class="{active: $state.includes('view2')}"><a ui-sref="view2">view2</a></li>
+				<li ng-class="{active: $state.includes('view2')}"><a ui-sref="view3">view3</a></li>
+		        <li ng-if="! userService.state.isLoggedIn()" ng-class="{active: $state.includes('login')}"><a ui-sref="login">login</a></li>
+		        <!--li ng-if="isLoggedIn()" ng-class="{active: $state.includes('user', { username: loggedInUser.username })}">
+					  <a ui-sref="user.home({ username: loggedInUser.username })">home</a>
+				</li-->
+		        <li ng-if="userService.state.isLoggedIn()"><a ui-sref="logout">logout</a></li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+
+	</nav>
+
+
+	       <div ui-view></div><!-- for sref above -->
+
+    <toaster-container>
+    </toaster-container>
+	
+   
+
+</body>
+</html>

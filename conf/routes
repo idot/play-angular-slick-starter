@@ -1,0 +1,26 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET       /                                 controllers.Application.index()
+
+
+GET      /api/users                        controllers.Users.all()
+
+
+
+
+# Send (user,password) to receive token
+POST    /api/login                      controllers.Application.login()
+# Invalidate token
+POST    /api/logout                     controllers.Application.logout()
+#refresh logged in user by token
+GET     /api/ping                       controllers.Application.ping()
+
+
+
+
+# Map the JS resource paths
+GET      /*file                            controllers.Assets.versioned(path="/public", file: Asset)
+

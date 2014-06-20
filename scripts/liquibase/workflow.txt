@@ -1,0 +1,11 @@
+#
+#initdb.sh to initalize database psql
+
+#change db.changelog.xml
+#./mkDDL.sh
+#./updatedb.sh
+
+#in teh beginning one can do
+#./dropdb.sh to start fresh with db.changelog
+# ./dropdb.sh && ./mkDDL.sh
+
